@@ -1,0 +1,50 @@
+Name:         firstpod
+Namespace:    default
+Priority:     0
+Node:         worker2/192.168.1.155
+Start Time:   Wed, 16 Feb 2022 04:09:53 +0000
+Labels:       type=app
+Annotations:  <none>
+Status:       Running
+IP:           10.244.2.37
+IPs:
+  IP:  10.244.2.37
+Containers:
+  firstcontainer:
+    Container ID:   docker://7cd6f3dcae13f6f5e6d131f75d55589d63e9668f01cda706aadf81f96c7704b4
+    Image:          coolgourav147/nginx-custom
+    Image ID:       docker-pullable://coolgourav147/nginx-custom@sha256:83c0272ec27d28017925099cdc5c3931c03c2d8b1cf20fcc7ba2f1d01d60bcb4
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 16 Feb 2022 04:09:57 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-crh79 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-crh79:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  5m26s  default-scheduler  Successfully assigned default/firstpod to worker2
+  Normal  Pulling    5m25s  kubelet            Pulling image "coolgourav147/nginx-custom"
+  Normal  Pulled     5m23s  kubelet            Successfully pulled image "coolgourav147/nginx-custom" in 2.529822534s
+  Normal  Created    5m22s  kubelet            Created container firstcontainer
+  Normal  Started    5m22s  kubelet            Started container firstcontainer

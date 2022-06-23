@@ -1,0 +1,50 @@
+-
+  name: this is our first playbook
+  hosts: webserver1
+  vars:
+    your_name: fahad
+    dummy_list:
+      - 1
+      - 20
+      - 30
+      - 10
+    dummy_list2:
+      - 30
+      - 40
+      - 10
+      - 50
+  tasks:
+    -
+      debug:
+        msg: "hello {{ your_name }}"
+    -
+      debug:
+        msg: "hello {{ your_name | upper }}"
+    -
+      debug:
+        msg: "hello {{ your_name | lower }}"
+    -
+      debug:
+        msg: "hello {{ your_name | replace ('fahad','meraj') }}"
+    -
+      debug:
+        msg: "{{ dummy_list | min }}"
+    -
+      debug:
+        msg: "{{ dummy_list | max }}"
+    -
+      debug:
+        msg: "{{dummy_list | unique}}"
+    -
+      debug:
+        msg: "{{ dummy_list | union(dummy_list2) }}"
+    -
+      debug:
+        msg: "{{ dummy_list | intersect(dummy_list2) }}"
+    -
+      debug:
+        msg: "{{ 100 | random }}"
+    -
+      debug:
+        msg: "{{ '/etc/ansible/ansible.cfg' | basename }}"
+        

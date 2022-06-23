@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: thirdpod
+  labels:
+    podname: secondpodlbl
+spec:
+  containers:
+    - image: coolgourav147/nginx-custom
+      name: thirdcontainer
