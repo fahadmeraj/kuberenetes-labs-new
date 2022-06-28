@@ -1,0 +1,6 @@
+kubectl taint node worker01 mysize=large:NoSchedule
+
+modes
+NoSchedule
+PreferNoSchedule
+NoExecute

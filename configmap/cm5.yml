@@ -1,0 +1,24 @@
+apiVersion: v1
+data:
+  adminapplications.properties: |
+    admin_user="user1"
+    admin_password="123"
+  application.properties: |
+    database_ip="1.1.1.1"
+    database_user="user1"
+    database_password="123"
+  cm3.yml: |
+    apiVersion: v1
+    data:
+      application.properties: |
+        database_ip="1.1.1.1"
+        database_user="user1"
+        database_password="123"
+    kind: ConfigMap
+    metadata:
+      creationTimestamp: null
+      name: cm3
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: cm5

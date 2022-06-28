@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  env.sh: |
+    variable1=value1
+    variable2=value2
+    variable3=value3
+    variable4=value4
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: cm6

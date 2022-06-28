@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmapmultiplevars
+spec:
+  containers:
+    - image: nginx:latest
+      name: firstcontainer
+      envFrom:
+        - configMapRef:
+            name: cm4
+    
+

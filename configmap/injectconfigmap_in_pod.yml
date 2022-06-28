@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: injectconfigmap
+spec:
+  containers:
+    - image: nginx:latest
+      name: firstcontainer
+      env:
+        - name: variablefromcm
+          valueFrom:
+            configMapKeyRef:
+              key: variable1
+              name: cm4
+        - name: variablefromcm
+          valueFrom:
+            configMapKeyRef:
+              key: variable2
+              name: cm4
+              

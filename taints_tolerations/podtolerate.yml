@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod5
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: myapp-container
+      image: coolgourav147/nginx-custom
+  tolerations:
+    - effect: "NoSchedule"
+      key: "mysize"
+      operator: "Equal"
+      value: "large"
+
+    
+#kubectl taint node worker01 mysize=large:NoSchedule
+
