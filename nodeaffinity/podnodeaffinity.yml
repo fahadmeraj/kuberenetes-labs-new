@@ -1,0 +1,23 @@
+#kubectl get nodes --show-labels
+#kubectl label nodes worker01 size=large
+
+apiVersion: v1
+metadata:
+  name: pod13
+spec:
+  containers:
+    - image: coolgourav147/nginx-custom
+      name: firstcontainer
+      imagePullPolicy: Never
+  affinity:
+    nodeaffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - preference:
+            matchExpressions
+              - key: size
+                operator: In
+                values:
+                  - small
+          weight: 1
+
+# preferred DuringScheduling IgnoredDuringExecution:

@@ -1,6 +1,23 @@
 kubectl taint node worker01 mysize=large:NoSchedule
 
+kubectl taint node worker01 mysize=large:PreferNoSchedule, NoExecute
+
 modes
 NoSchedule
 PreferNoSchedule
 NoExecute
+
+kubectl taint node worker2 mysize=small:NoSchedule
+
+#tolerationSeconds: 60    can use with noexecute effect
+# kubectl taint node worker1 mysize=large:NoSchedule
+# kubectl taint node worker2 mysize=small:NoExecute
+# kubectl taint node worker2 mysize-    to untaint
+# by default it picks equal operator if we don't mention 1
+# if leave effect empty "" then it will tolerate all 3 effects
+# operater "Exists", then it will only check if mysize is there irrespective of its value
+# if using taint, then taint every node otherwise there will be no guarantee that it will go the desired node
+# if we leave key empty, along with exists operator then it can tolerate everything.
+# if we leave effect empty, it will tolerate all of the effects
+
+
