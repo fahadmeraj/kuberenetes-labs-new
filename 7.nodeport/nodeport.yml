@@ -1,0 +1,16 @@
+kubecl expose [pod podname] --type=NodePort --port=8000 --target-port=80 --name my-nodeport-service
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nodeport-service
+spec:
+  selector:
+    app: my-app
+  type: NodePort
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      nodePort: 30036
+      protocol: TCP

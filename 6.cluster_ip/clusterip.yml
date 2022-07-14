@@ -1,0 +1,13 @@
+#cluster ip
+kubectl expose pod myfirstpod --port=8000 --target-port=80 --name myfirstservice
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myfirstpod
+  labels:
+    podname: secondpodlb
+spec:
+  containers:
+   - name: firstcontainer
+     image: coolgourav147/nginx-custom
